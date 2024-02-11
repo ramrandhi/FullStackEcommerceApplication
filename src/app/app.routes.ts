@@ -3,5 +3,6 @@ import { LoginComponent } from './auth/login/login.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/login', pathMatch:'full' },
-    {path: 'login', component: LoginComponent}
+    {path: 'login', component: LoginComponent},
+    { path: 'app', loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule)}
 ];

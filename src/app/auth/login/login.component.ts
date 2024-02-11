@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,20 +8,18 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
+  constructor(
+    private router: Router
+  ){}
 
-  @ViewChild('sidenav') sidenav!: ElementRef;
-
-  closeNav() {
-    if (this.sidenav.nativeElement) {
-      this.sidenav.nativeElement.style.width = '0';
-    }
+  ngOnInit(): void {
+    console.log('geelo');
   }
 
-  openNav() {
-    if (this.sidenav.nativeElement) {
-      this.sidenav.nativeElement.style.width = '250px';
-    }
+  submitLoginInfo(){
+    console.log("hello");
+    this.router.navigateByUrl('/app/dashboard');
   }
 
 }
